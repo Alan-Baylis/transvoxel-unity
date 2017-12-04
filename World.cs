@@ -18,12 +18,9 @@ public class World : MonoBehaviour
 
 		for (int x = 0; x < size; x++) {
 			for (int z = 0; z < size; z++) {
-				float noise = 0f;//(float)((SimplexNoise.noise (x * 1f, z * 1f) * 0.01f));
+				float noise = (float)((SimplexNoise.noise (x * 1f, z * 1f) * 0.01f));
 				for (int y = 0; y < size; y++) {
-					if (y < 8)
-						values [x, y, z] = (sbyte)Random.Range (0, 127);//(sbyte)Mathf.Clamp (noise - y, -127, 127);//(sbyte)Mathf.Clamp (((((noise + 1f) * 32f) + 0.5f) - (y + 0.5f)), -127, 127);
-					else
-						values [x, y, z] = (sbyte)Random.Range (-127, 0);
+						values [x, y, z] =(sbyte)Mathf.Clamp (((((noise + 1f) * 32f) + 0.5f) - (y + 0.5f)), -127, 127);
 				}
 			}
 		}
